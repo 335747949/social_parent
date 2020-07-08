@@ -61,4 +61,10 @@ public class ArticleController {
         page.put("page",pageUtil);
         return new Result(true, StatusCode.OK,"查询成功",page);
     }
+
+    @RequestMapping(value = "exception",method = RequestMethod.GET)
+    public Result test() {
+        int i = 2 / 0;
+        return null;
+    }
 }
