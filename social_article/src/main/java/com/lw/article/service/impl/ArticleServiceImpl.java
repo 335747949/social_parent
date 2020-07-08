@@ -1,5 +1,6 @@
 package com.lw.article.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.lw.article.dao.ArticleMapper;
 import com.lw.article.entity.Article;
@@ -10,8 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import util.IdWorker;
 
+import java.security.Key;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * @author lanwei
@@ -64,10 +67,18 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public PageUtil queryPage(Map<String, Object> param) {
 
+        //设置查询条件
+        QueryWrapper<Article> wrapper = new QueryWrapper<>();
+        Set<String> set = param.keySet();
+        for (String key : set) {
+            wrapper.eq(param.get(key) != null,key,param.get(key));
+        }
+
         IPage<Article> queryPage = new QueryUtil<Article>().getQueryPage(param);
 
-        IPage<Article> resPage = articleMapper.selectPage(queryPage, null);
+        IPage<Article> resPage = articleMapper.selectPage(queryPage, wrapper);
 
         return new PageUtil(resPage);
+
     }
 }
