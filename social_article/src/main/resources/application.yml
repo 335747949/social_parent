@@ -1,0 +1,23 @@
+server:
+  port: 9004
+spring:
+  application:
+    name: social-article
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.1.100:3306/tensquare_article?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+    username: root
+    password: 123456
+
+mybatis-plus:
+  #实体扫描，多个package用逗号或者分号分隔
+  type-aliases-package: com.lw.artcile.entity
+  global-config:
+    id-type: 1  #0 数据库主键自增  1 用户输入
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: true  #配置缓存的全局开关
+    lazy-loading-enabled: true  #延时加载的开关
+    multiple-result-sets-enabled: true  #开启延时加载，否则按需加载属性
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl  #打印sql语句
+#  mapper-locations: classpath:/mapper/*Mapper.xml
