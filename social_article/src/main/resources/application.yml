@@ -8,6 +8,10 @@ spring:
     url: jdbc:mysql://192.168.1.100:3306/tensquare_article?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
     username: root
     password: 123456
+  data:
+    mongodb:
+      host: 192.168.1.100
+      database: conmmentdb
 
 mybatis-plus:
   #实体扫描，多个package用逗号或者分号分隔
