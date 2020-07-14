@@ -17,6 +17,7 @@ import java.util.Map;
  * @email 335747949@qq.com
  */
 @RestController
+@CrossOrigin   //解决跨域问题
 @RequestMapping("/article")
 public class ArticleController {
 
