@@ -14,4 +14,10 @@ public interface CommentService {
 
 
     Comment findById(String commentid);
+
+    void save(Comment comment);
+
+    void update(Comment comment);
+
+    void deleteById(String commentid);
 }

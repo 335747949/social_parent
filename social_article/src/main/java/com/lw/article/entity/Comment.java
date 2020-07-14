@@ -14,7 +14,7 @@ import java.util.Date;
 public class Comment implements Serializable{
 
     @TableId
-    private String id;
+    private String _id;
     private String articleid;
     private String content;
     private String userid;
