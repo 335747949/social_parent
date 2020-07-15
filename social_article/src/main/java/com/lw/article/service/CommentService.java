@@ -24,4 +24,5 @@ public interface CommentService {
     List<Comment> findByArticleid(String articleId);
 
     void thumbup(String commentid);
+
 }

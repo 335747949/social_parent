@@ -12,6 +12,8 @@ spring:
     mongodb:
       host: 192.168.1.100
       database: conmmentdb
+  redis:
+    host: 192.168.1.100
 
 mybatis-plus:
   #实体扫描，多个package用逗号或者分号分隔
