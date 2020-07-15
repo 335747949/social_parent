@@ -55,4 +55,19 @@ public class CommentController {
         return new Result(true,StatusCode.OK,"删除成功");
     }
 
+
+    //通过文章id查询评论
+    @RequestMapping(value = "/article/{articleid}",method = RequestMethod.GET)
+    public Result findByArticleid(@PathVariable String articleid){
+        List<Comment> list = commentService.findByArticleid(articleid);
+        return new Result(true,StatusCode.OK,"查询成功",list);
+    }
+
+    //对评论点赞
+    @RequestMapping(value = "/thumbup/{commentid}",method = RequestMethod.PUT)
+    public Result tthumbup(@PathVariable String commentid){
+        commentService.thumbup(commentid);
+        return new Result(true,StatusCode.OK,"点赞成功");
+    }
+
 }

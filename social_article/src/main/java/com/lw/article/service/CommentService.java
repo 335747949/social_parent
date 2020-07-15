@@ -20,4 +20,8 @@ public interface CommentService {
     void update(Comment comment);
 
     void deleteById(String commentid);
+
+    List<Comment> findByArticleid(String articleId);
+
+    void thumbup(String commentid);
 }
