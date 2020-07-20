@@ -77,7 +77,7 @@ public class CommentController {
          * 如果有点赞信息，则代表不能点赞
          */
         //模拟用户信息
-        String userid = "lanwei1234";
+        String userid = "lanwei12345";
 
         Object flag = redisTemplate.opsForValue().get("thumbup_"+userid+"_"+commentid);
         //thumbup_lanwei1234_1282968963634040832
